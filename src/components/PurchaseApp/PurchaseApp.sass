@@ -1,0 +1,72 @@
+.PurchaseAppWrapper
+    display: flex
+    background: linear-gradient(180deg, #FFFFFF 0%, #FEFEFE 100%)
+    box-shadow: 0px 2px 18px rgba(0, 0, 0, 0.07)
+    border-radius: 5px
+    .PurchasePhaseWrapper
+        padding: 20px 40px
+        max-width: 60%
+        ul.phase-menu
+            display: flex
+            list-style-type: none
+            font-size: 14px
+            li
+               cursor: pointer
+               transition: .2s ease
+               &:hover
+                   color: $accent
+            li, img
+               margin-right: 13px
+            li.active
+                color: $accent
+                font-weight: 600
+        .FormWrapper
+            h2
+                color: $accent
+                font-size: 23px
+                margin: 19px 0
+            .form-group
+                display: flex
+                flex-direction: column
+                margin-bottom: 25px 
+                label
+                    color: $accent
+                    margin: 0 0 7px 0 
+                .form-row
+                    display: flex
+                    align-items: center
+                    .field-details
+                        font-size: 11px
+                        width: 120px
+                        margin: 0 0 7px 10px
+                    input:last-child
+                        margin: 0 0 7px 10px
+                        width: 40%
+                        flex: initial
+                input, select
+                    flex: 1
+                    width: 100%
+                    border: 1px solid #DEDCDC
+                    border-radius: 5px
+                    margin-bottom: 7px
+                    padding: 10px 15px
+                    color: $grey
+                input:last-child
+                    margin-bottom: 0  
+                .input-wrapper
+                    margin-bottom: 7px   
+                    flex: 1 
+                    position: relative
+                    input
+                        margin: 0
+                    .target-icon
+                        position: absolute
+                        background: url('../../resources/svg/target.svg') no-repeat
+                        width: 20px
+                        height: 20px
+                        right: 10px
+                        top: 0
+                        bottom: 0
+                        margin: auto 0
+                        cursor: pointer
+                    

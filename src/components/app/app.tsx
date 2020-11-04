@@ -3,10 +3,10 @@ import { withRouter } from "react-router-dom";
 
 import "./app.sass";
 
-import Login from "../Login";
+import AppView from "../AppView";
 
 const App = () => {
-  const content = <Login />;
+  const content = <AppView />;
 
   return <div className="app">{content}</div>;
 };
