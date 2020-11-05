@@ -35,7 +35,8 @@ const Form = ({ onSubmit }) => {
       >
         {({ isSubmitting }) => (
           <FormikForm>
-            <BillingForm />
+            <ShippingForm />
+            {/*<button type="submit">click</button>*/}
           </FormikForm>
         )}
       </Formik>

@@ -8,7 +8,6 @@
         max-width: 60%
         ul.phase-menu
             display: flex
-            list-style-type: none
             font-size: 14px
             li
                cursor: pointer
@@ -69,4 +68,62 @@
                         bottom: 0
                         margin: auto 0
                         cursor: pointer
-                    
+    .OrderSummaryWrapper
+        flex: 1
+        background-color: #F3F3F3
+        padding: 20px 12px 15px 9px
+        font-size: 12px
+        .header        
+            display: flex
+            justify-content: space-between
+            align-items: center
+            h3
+                color: $accent 
+                font-size: 15px
+            span
+                text-decoration: underline
+                font-size: 11px
+        ul
+            margin-top: 8px
+            li
+                padding: 10px 4px
+                border-bottom: 1px solid rgba(151, 151, 151, .2)
+                display: flex
+                align-items: center
+                img
+                    width:  45px
+                    padding: 2px 1px 6px 2px 
+                    border: 1px solid rgba(151, 151, 151, .2)
+                    border-radius: 3px
+                    margin-right: 10px
+                    cursor: pointer
+                .product-info
+                    display: flex
+                    flex: 1
+                    flex-direction: column
+                    .row
+                        display: flex
+                        justify-content: space-between
+                        align-items: center
+                        margin-bottom: 7px
+                        span:first-child
+                            cursor: pointer
+                    > span
+                        color: black
+                        font-size: 9px
+                        margin-bottom: 4px
+                        font-weight: 600
+                        &:last-child
+                            margin-bottom: 0
+        .subtotal
+            padding: 13px 0
+            border-bottom: 1px solid rgba(151, 151, 151, .2)
+            .row 
+                margin-bottom: 9px
+            .row:last-child
+                margin-bottom: 0
+        .total
+            margin-top: 14px
+            color: $darkAccent
+            font-weight: bold
+            font-size: 13px

@@ -29,11 +29,13 @@ const ShippingForm = () => (
       </div>
       <div className="form-row">
         <Field as="select" name="shippingCountry">
-          <option value="" disabled selected>
+          <option value="Country" hidden>
             Country
           </option>
-          {countries.map((c) => (
-            <option value={c.name}>{c.name}</option>
+          {countries.map((c, i) => (
+            <option key={i} value={c.name}>
+              {c.name}
+            </option>
           ))}
         </Field>
         <Field type="text" name="shippingZip" placeholder="ZIP" />
