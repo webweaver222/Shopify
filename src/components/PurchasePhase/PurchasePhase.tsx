@@ -1,31 +1,51 @@
 import React from "react";
+import classnames from "classnames";
 import { connect } from "react-redux";
-import Form from "../Form";
+import { State } from "../../reducers";
+import { changeStage } from "../../actions/punchase";
 
 import arrow from "../../resources/svg/arrowR.svg";
 
-const PurchasePhase = () => {
+import Form from "../Form";
+import ShippingForm from "../ShippingForm";
+import BillingForm from "../BillingForm";
+
+const PurchasePhase = ({ stageIdx, onChangeStage }) => {
+  const Stage = [ShippingForm, BillingForm][stageIdx];
+
   return (
     <div className="PurchasePhaseWrapper">
       <ul className="phase-menu">
-        <li className="active">Shipping</li>
+        <li
+          className={classnames(stageIdx === 0 && "active")}
+          onClick={() => onChangeStage(0)}
+        >
+          Shipping
+        </li>
         <img src={arrow} alt="arrow" />
-        <li>Billing</li>
+        <li
+          className={classnames(stageIdx === 1 && "active")}
+          onClick={() => onChangeStage(1)}
+        >
+          Billing
+        </li>
         <img src={arrow} alt="arrow" />
         <li>Payment</li>
       </ul>
-      <Form /* stage={...}*/ />
-      <button>Continue</button>
+      <Form>
+        <Stage />
+      </Form>
+      <button onClick={() => onChangeStage(stageIdx + 1)}>Continue</button>
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({
-  // blabla: state.blabla,
+const mapStateToProps = ({ punchase: { stage } }: State) => ({
+  stageIdx: stage,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  // fnBlaBla: () => dispatch(action.name()),
+  onChangeStage: (stage: number) => dispatch(changeStage(stage)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PurchasePhase);

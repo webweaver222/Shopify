@@ -2,10 +2,7 @@ import React from "react";
 import { Formik, Form as FormikForm } from "formik";
 import { connect } from "react-redux";
 
-import ShippingForm from "../ShippingForm";
-import BillingForm from "../BillingForm";
-
-const Form = ({ onSubmit }) => {
+const Form = ({ onSubmit, children }) => {
   return (
     <div className="FormWrapper">
       <Formik
@@ -33,12 +30,7 @@ const Form = ({ onSubmit }) => {
           console.log(values);
         }}
       >
-        {({ isSubmitting }) => (
-          <FormikForm>
-            <ShippingForm />
-            {/*<button type="submit">click</button>*/}
-          </FormikForm>
-        )}
+        {({ isSubmitting }) => <FormikForm>{children}</FormikForm>}
       </Formik>
     </div>
   );

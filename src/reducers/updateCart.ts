@@ -1,4 +1,4 @@
-import { Cart } from "../models/cart";
+import { Cart, Product } from "../models/cart";
 import { Action, ActionTypes } from "../actions/cart";
 
 const initialCart: Cart = {
@@ -32,7 +32,7 @@ const initialCart: Cart = {
   taxRate: 3,
 };
 
-const updateCart = (cart: Cart, action: Action) => {
+const updateCart = (cart: Cart, action: Action): Cart => {
   if (typeof cart === "undefined") return initialCart;
 
   switch (action.type) {
