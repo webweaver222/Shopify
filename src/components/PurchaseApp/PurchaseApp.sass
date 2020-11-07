@@ -5,7 +5,7 @@
     border-radius: 5px
     .PurchasePhaseWrapper
         padding: 20px 40px
-        max-width: 58%
+        width: 58%
         ul.phase-menu
             display: flex
             font-size: 14px
@@ -24,13 +24,29 @@
                 color: $accent
                 font-size: 23px
                 margin: 19px 0
+            button
+                margin-top: 25px
+            .row
+                margin-bottom: 17px
+                justify-content: flex-start
+                span
+                    font-size: 14px
+                    margin-left: 14px
+            .form-row
+                display: flex
+                > div
+                    display: flex
+                    flex-direction: column
+                    margin-right: 30px
+                    input
+                        width: 100px
             .form-group
                 display: flex
                 flex-direction: column
                 margin-bottom: 25px 
-                label
-                    color: $accent
-                    margin: 0 0 7px 0 
+            label
+                color: $accent
+                margin: 0 0 7px 0 
                 .form-row
                     display: flex
                     align-items: center
@@ -41,17 +57,15 @@
                     input:last-child
                         margin: 0 0 7px 10px
                         width: 40%
-                        flex: initial
-                input, select
-                    flex: 1
-                    width: 100%
-                    border: 1px solid #DEDCDC
-                    border-radius: 5px
-                    margin-bottom: 7px
-                    padding: 10px 15px
-                    color: $grey
-                input:last-child
-                    margin-bottom: 0  
+                        flex: initial     
+            input, select
+                flex: 1
+                width: 100%
+                border: 1px solid #DEDCDC
+                border-radius: 5px
+                margin-bottom: 7px
+                padding: 10px 15px
+                color: $grey
                 .input-wrapper
                     margin-bottom: 7px   
                     flex: 1 

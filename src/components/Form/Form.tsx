@@ -21,7 +21,7 @@ const Form = ({ onSubmit, children }) => {
           billingCity: "",
           billingCountry: "",
           billingZip: "",
-          paymentCardNane: "",
+          paymentCardName: "",
           paymentCardNumber: "",
           paymentCardDate: "",
           paymentCardCode: "",

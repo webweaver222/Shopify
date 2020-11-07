@@ -9,9 +9,10 @@ import arrow from "../../resources/svg/arrowR.svg";
 import Form from "../Form";
 import ShippingForm from "../ShippingForm";
 import BillingForm from "../BillingForm";
+import PaymentForm from "../PaymentForm";
 
 const PurchasePhase = ({ stageIdx, onChangeStage }) => {
-  const Stage = [ShippingForm, BillingForm][stageIdx];
+  const Stage = [ShippingForm, BillingForm, PaymentForm][stageIdx];
 
   return (
     <div className="PurchasePhaseWrapper">
@@ -30,12 +31,19 @@ const PurchasePhase = ({ stageIdx, onChangeStage }) => {
           Billing
         </li>
         <img src={arrow} alt="arrow" />
-        <li>Payment</li>
+        <li
+          className={classnames(stageIdx === 2 && "active")}
+          onClick={() => onChangeStage(2)}
+        >
+          Payment
+        </li>
       </ul>
       <Form>
         <Stage />
       </Form>
-      <button onClick={() => onChangeStage(stageIdx + 1)}>Continue</button>
+      {stageIdx < 2 && (
+        <button onClick={() => onChangeStage(stageIdx + 1)}>Continue</button>
+      )}
     </div>
   );
 };
