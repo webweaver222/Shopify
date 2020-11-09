@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import Login from "./Login";
 import { auth, googleLogIn } from "../../actions";
-import { compose } from "../../utils";
+import { compose, renderErrors } from "../../utils";
 import { withRouter } from "react-router-dom";
 import withService from "../hoc/withService";
 
@@ -53,8 +53,6 @@ const LoginContainer = ({
       </span>
     );
 
-    const renderErrors = (arr: string[]) =>
-      arr.map((e, i) => <li key={i}>{e}</li>);
     return (
       <div className="login">
         <div className="login-header">{header}</div>

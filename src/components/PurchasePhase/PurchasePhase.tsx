@@ -2,7 +2,6 @@ import React from "react";
 import classnames from "classnames";
 import { connect } from "react-redux";
 import { State } from "../../reducers";
-import { changeStage } from "../../actions/punchase";
 
 import arrow from "../../resources/svg/arrowR.svg";
 
@@ -41,9 +40,6 @@ const PurchasePhase = ({ stageIdx, onChangeStage }) => {
       <Form>
         <Stage />
       </Form>
-      {stageIdx < 2 && (
-        <button onClick={() => onChangeStage(stageIdx + 1)}>Continue</button>
-      )}
     </div>
   );
 };
@@ -52,8 +48,6 @@ const mapStateToProps = ({ punchase: { stage } }: State) => ({
   stageIdx: stage,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  onChangeStage: (stage: number) => dispatch(changeStage(stage)),
-});
+const mapDispatchToProps = () => ({});
 
-export default connect(mapStateToProps, mapDispatchToProps)(PurchasePhase);
+export default connect(mapStateToProps, null)(PurchasePhase);

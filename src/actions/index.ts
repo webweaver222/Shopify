@@ -1,7 +1,14 @@
 import { State } from "../reducers/index";
 import DefaultApi from "../services/defaultApi";
-import Validator from "../services/validator";
+import Validator, { PunchaseValidator } from "../services/validator";
 import { Action, ActionTypes, ValidationFail, FetchSuccess } from "./auth";
+
+import { PunchaseFormValues } from "../models/puchase";
+import {
+  ValidationFail as PunchaseValidationFail,
+  changeStage,
+} from "../actions/punchase";
+import { filterObjectProps } from "../utils";
 
 const auth = (service: DefaultApi) => async (dispatch, getState) => {
   const v = new Validator();
@@ -53,4 +60,37 @@ const googleLogIn = (service: DefaultApi) => async (dispatch) => {
   }, 100);
 };
 
-export { auth, googleLogIn };
+const changePunchaseForm = (idx: number) => (values: PunchaseFormValues) => (
+  dispatch,
+  getState
+) => {
+  const {
+    punchase: { stage },
+  } = getState();
+
+  const v = new PunchaseValidator();
+
+  let validValues: PunchaseFormValues;
+
+  switch (stage) {
+    case 0:
+      validValues = filterObjectProps(values, "shipping");
+      break;
+    case 1:
+      validValues = filterObjectProps(values, "billing");
+      break;
+    case 2:
+      validValues = filterObjectProps(values, "payment");
+      break;
+  }
+
+  v.validateFields(validValues);
+
+  if (Object.keys(v.valid_errors).length > 0) {
+    return dispatch(PunchaseValidationFail(v.valid_errors));
+  }
+
+  return dispatch(changeStage(idx));
+};
+
+export { auth, googleLogIn, changePunchaseForm };
